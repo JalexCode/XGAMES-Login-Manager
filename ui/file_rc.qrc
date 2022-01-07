@@ -1,0 +1,60 @@
+<RCC>
+  <qresource prefix="Icon">
+    <file>graphics/icon.png</file>
+    <file>graphics/skypewifi.png</file>
+  </qresource>
+  <qresource prefix="images">
+    <file>images/jalex.png</file>
+  </qresource>
+  <qresource prefix="Resources">
+    <file>resources/rightanglearrow.png</file>
+    <file>resources/arrow_down.png</file>
+    <file>resources/remote_right_arrow_icon.png</file>
+    <file>resources/arrow_down_disabled.png</file>
+    <file>resources/down_arrow.png</file>
+  </qresource>
+  <qresource prefix="Graphics">
+    <file>graphics/back.png</file>
+    <file>graphics/facebook (2).png</file>
+    <file>graphics/settings.png</file>
+    <file>graphics/Coffee Time.png</file>
+    <file>graphics/alt_sms_2.png</file>
+    <file>graphics/icon_support.png</file>
+    <file>graphics/support_agent_outlined@2x.png</file>
+    <file>graphics/mikrotik_white.png</file>
+    <file>graphics/up_down.png</file>
+    <file>graphics/skypewifi.png</file>
+    <file>graphics/browser12.png</file>
+    <file>graphics/alt_twitter_1.png</file>
+    <file>graphics/develop.png</file>
+    <file>graphics/telegram.png</file>
+    <file>graphics/add_circle_outline@2x.png</file>
+    <file>graphics/highlight_remove@2x.png</file>
+    <file>graphics/left_time.png</file>
+    <file>graphics/cil-x.png</file>
+    <file>graphics/connected.png</file>
+    <file>graphics/connected_time.png</file>
+    <file>graphics/critical.png</file>
+    <file>graphics/ic_lock_open_wht_24dp.png</file>
+    <file>graphics/ic_lock_outline_wht_24dp.png</file>
+    <file>graphics/ic_lock_power_off_alpha.png</file>
+    <file>graphics/not_connected.png</file>
+    <file>graphics/passw.png</file>
+    <file>graphics/pss_close_nor.png</file>
+    <file>graphics/speed_flat.png</file>
+    <file>graphics/success.png</file>
+    <file>graphics/topbar_floating_button_maximize.png</file>
+    <file>graphics/ic_lock_open_wht_24dp.png</file>
+  </qresource>
+  <qresource prefix="Avatar">
+    <file>graphics/avatar_logo.png</file>
+  </qresource>
+  <qresource prefix="Logo">
+    <file>graphics/xgames_white.png</file>
+    <file>graphics/xgames1.png</file>
+    <file>graphics/xgames2.png</file>
+    <file>graphics/xgames3.png</file>
+    <file>graphics/xgames4.png</file>
+    <file>graphics/xgames5.png</file>
+  </qresource>
+</RCC>

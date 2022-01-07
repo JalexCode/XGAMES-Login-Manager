@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>430</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>X-GAMES</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="file_rc.qrc">
+    <normaloff>:/Icon/graphics/icon.png</normaloff>:/Icon/graphics/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+color: rgb(200, 200, 200);
+background-color: rgb(50, 50, 50);/* rgb(10, 10, 10);*/
+}
+
+QMenuBar
+{
+    background-color: #31363b;
+    color: #eff0f1;
+}
+
+QMenuBar::item
+{
+    background: transparent;
+}
+
+QMenuBar::item:selected
+{
+    background: rgb(124, 124, 124);
+}
+
+QMenuBar::item:pressed
+{
+    background-color: rgb(255, 247, 0);
+    color: black;
+    margin-bottom:-1px;
+    padding-bottom:1px;
+}
+QMenu
+{
+    border: none;
+	background-color: rgb(86, 86, 86);
+    color: rgb(230, 230, 230);
+}
+
+QMenu::icon
+{
+    margin: 5px;
+	width: 10px;
+	height: 10px;
+}
+
+QMenu::item
+{
+    padding: 5px 30px 5px 30px;
+    /*border: 1px solid transparent;  reserve space for selection border */
+}
+QMenu::item:hover
+{
+    background-color: rgb(104, 104, 104);
+}
+QMenu::item:selected
+{
+    background-color: rgb(63, 63, 63);
+	color: rgb(217, 217, 217);
+}
+
+QMenu::separator {
+	height:1px;
+    background: rgb(255, 255, 255, 80);
+}
+
+QMenu::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* non-exclusive indicator = check box style indicator
+   (see QActionGroup::setExclusive) */
+QMenu::indicator:non-exclusive:unchecked {
+    image: url(:/qss_icons/rc/checkbox_unchecked.png);
+}
+
+QMenu::indicator:non-exclusive:unchecked:selected {
+    image: url(:/qss_icons/rc/checkbox_unchecked_disabled.png);
+}
+
+QMenu::indicator:non-exclusive:checked {
+    image: url(:/qss_icons/rc/checkbox_checked.png);
+}
+
+QMenu::indicator:non-exclusive:checked:selected {
+    image: url(:/qss_icons/rc/checkbox_checked_disabled.png);
+}
+
+/* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
+QMenu::indicator:exclusive:unchecked {
+    image: url(:/qss_icons/rc/radio_unchecked.png);
+}
+
+QMenu::indicator:exclusive:unchecked:selected {
+    image: url(:/qss_icons/rc/radio_unchecked_disabled.png);
+}
+
+QMenu::indicator:exclusive:checked {
+    image: url(:/qss_icons/rc/radio_checked.png);
+}
+
+QMenu::indicator:exclusive:checked:selected {
+    image: url(:/qss_icons/rc/radio_checked_disabled.png);
+}
+
+QMenu::right-arrow {
+    margin: 5px;
+	height:10px;
+	width:10px;
+	image: url(:/Resources/resources/rightanglearrow.png);
+	/*image: url(:/Resources/resources/remote_right_arrow_icon.png);*/
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="1" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="page_3">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 11pt &quot;Segoe UI&quot;;
+}
+QGroupBox {
+	color: rgb(255, 255, 255);
+	font: 11pt &quot;Segoe UI&quot;;
+    border:1px solid #76797C;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+QCheckBox, QRadioButton{
+font: 11pt &quot;Segoe UI&quot;;
+	color: white;
+}
+QCheckBox::indicator, QRadioButton::indicator {
+	border: 1px solid rgb(100, 100, 100);
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+	border: 1px solid rgb(255, 205, 0);
+	background-color: rgb(255, 255, 0);
+}
+
+QLineEdit {
+font: 11pt &quot;Segoe UI&quot;;
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(30, 30, 30);	
+	/*color: rgb(100, 100, 100);*/
+	
+	color: rgb(235, 235, 235);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 207, 0);	
+	color: rgb(200, 200, 200);
+}
+
+QComboBox
+{
+	color: rgb(0, 0, 0);
+	font: 12pt &quot;Calibri&quot;;
+    background-color: rgb(161, 161, 161);
+    border-radius:12px;
+    border:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    selection-background-color: rgb(62, 62, 62);
+    min-width: 75px;
+	min-height: 30px;
+}
+
+QComboBox:drop-down {
+	color: white;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 12px;
+    border:none;
+    border-radius:10px;
+    background-color: transparent;
+}
+
+QComboBox:down-arrow {
+   
+	image: url(:/Resources/resources/arrow_down.png);
+    height: 12px;
+    width: 12px;
+    padding-right: 10px;
+}
+
+QComboBox:on:hover:focus {
+   
+	image: url(:/Resources/resources/arrow_down_disabled.png);
+}
+
+QComboBox QAbstractItemView
+{
+	color: white;
+    background-color: #232629;
+    border-radius: 10px;
+    border: none;
+    selection-background-color: #18465d;
+}
+
+QPushButton {	
+	color: rgb(222, 222, 222);
+	font: bold 12pt &quot;Calibri&quot;;
+	background-color: rgb(80, 80, 80);
+	border: 2px solid rgb(60, 60, 60);
+	border-radius: 10px;
+	padding:5px;
+}
+QPushButton:hover {	
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70, 70, 70);
+}
+QPushButton:pressed {	
+	background-color: rgb(250, 230, 0);
+	border: 2px solid rgb(255, 165, 24);	
+	color: rgb(35, 35, 35);
+}</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="0">
+         <widget class="QWidget" name="widget_3" native="true">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="mikrotic_ip">
+             <property name="text">
+              <string>192.168.10.1</string>
+             </property>
+             <property name="placeholderText">
+              <string>Ejemplo: 192.168.10.1</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="network_adapter"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Dirección IP del MikroTik</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Adaptador de red:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QDialogButtonBox" name="buttonBox">
+          <property name="standardButtons">
+           <set>QDialogButtonBox::RestoreDefaults|QDialogButtonBox::Save</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0">
+         <widget class="QWidget" name="widget_5" native="true">
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>26</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 26pt &quot;Segoe UI&quot;;
+color: rgb(188, 188, 188);</string>
+             </property>
+             <property name="text">
+              <string>Opciones</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QToolButton" name="go_back">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QToolButton{
+	background-color: transparent;
+	border-radius: 25px;
+}
+QToolButton:hover{
+	background-color: rgb(90, 90, 90);
+}
+</string>
+             </property>
+             <property name="text">
+              <string>...</string>
+             </property>
+             <property name="icon">
+              <iconset resource="file_rc.qrc">
+               <normaloff>:/Graphics/graphics/back.png</normaloff>:/Graphics/graphics/back.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QFrame" name="login_area">
+          <property name="maximumSize">
+           <size>
+            <width>450</width>
+            <height>550</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-radius: 10px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="logo">
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>360</width>
+               <height>110</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/*background-image: url(:/Logo/graphics/xgames5.png);*/
+background-repeat: no-repeat;
+background-position: center;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="file_rc.qrc">:/Logo/graphics/xgames5.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="user_ledit">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 207, 0);	
+	color: rgb(200, 200, 200);
+}</string>
+             </property>
+             <property name="maxLength">
+              <number>32</number>
+             </property>
+             <property name="placeholderText">
+              <string>USUARIO</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="password_ledit">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(55, 55, 55);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 207, 0);	
+	color: rgb(200, 200, 200);
+}</string>
+             </property>
+             <property name="maxLength">
+              <number>16</number>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="placeholderText">
+              <string>CONTRASEÑA</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget" native="true">
+             <property name="styleSheet">
+              <string notr="true">QCheckBox, QRadioButton{
+font: 10pt &quot;Segoe UI&quot;;
+	color: rgb(218, 218, 218);
+}
+QCheckBox::indicator, QRadioButton::indicator {
+	border: 1px solid rgb(100, 100, 100);
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+	border: 1px solid rgb(255, 205, 0);
+	background-color: rgb(255, 255, 0);
+}</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="checkBox_save_user">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Guardar usuario</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="3">
+               <widget class="QRadioButton" name="permanent_rb">
+                <property name="text">
+                 <string>Fijo</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QRadioButton" name="ticket_rb">
+                <property name="text">
+                 <string>Ticket</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="login_btn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {	
+	
+	color: rgb(222, 222, 222);
+	font: bold 12pt &quot;Calibri&quot;;
+	background-color: rgb(80, 80, 80);
+	border: 2px solid rgb(60, 60, 60);
+	border-radius: 15px;
+}
+QPushButton:hover {	
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70, 70, 70);
+}
+QPushButton:pressed {	
+	background-color: rgb(250, 230, 0);
+	border: 2px solid rgb(255, 165, 24);	
+	color: rgb(35, 35, 35);
+}</string>
+             </property>
+             <property name="text">
+              <string>LOGIN</string>
+             </property>
+             <property name="icon">
+              <iconset resource="file_rc.qrc">
+               <normaloff>:/Graphics/graphics/ic_lock_open_wht_24dp.png</normaloff>:/Graphics/graphics/ic_lock_open_wht_24dp.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>30</width>
+               <height>30</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_11">
+        <item row="0" column="0" colspan="2">
+         <widget class="QWidget" name="status_container" native="true">
+          <property name="styleSheet">
+           <string notr="true">QScrollBar:horizontal
+{
+    height: 15px;
+    margin: 3px 15px 3px 15px;
+    border: 1px transparent #2A2929;
+    border-radius: 4px;
+    background-color: #2A2929;
+}
+
+QScrollBar::handle:horizontal
+{
+    background-color: #605F5F;
+    min-width: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::add-line:horizontal
+{
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/right_arrow_disabled.png);
+    width: 10px;
+    height: 10px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal
+{
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/left_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal:hover,QScrollBar::add-line:horizontal:on
+{
+    border-image: url(:/qss_icons/rc/right_arrow.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+
+QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on
+{
+    border-image: url(:/qss_icons/rc/left_arrow.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+    background: none;
+}
+
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+    background: none;
+}
+
+QScrollBar:vertical
+{
+    background-color: #2A2929;
+    width: 15px;
+    margin: 15px 3px 15px 3px;
+    border: 1px transparent #2A2929;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical
+{
+    background-color: #605F5F;
+    min-height: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::sub-line:vertical
+{
+    margin: 3px 0px 3px 0px;
+    border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical
+{
+    margin: 3px 0px 3px 0px;
+    border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
+{
+
+    border-image: url(:/qss_icons/rc/up_arrow.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+
+QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
+{
+    border-image: url(:/qss_icons/rc/down_arrow.png);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+{
+    background: none;
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+    background: none;
+}</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="2" column="0" colspan="2">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QWidget" name="widget_4" native="true">
+             <layout class="QGridLayout" name="gridLayout_13">
+              <property name="leftMargin">
+               <number>10</number>
+              </property>
+              <property name="topMargin">
+               <number>10</number>
+              </property>
+              <property name="rightMargin">
+               <number>10</number>
+              </property>
+              <property name="bottomMargin">
+               <number>10</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="logout_btn">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {	
+	
+	color: rgb(222, 222, 222);
+	font: bold 12pt &quot;Calibri&quot;;
+	background-color: rgb(80, 80, 80);
+	border: 2px solid rgb(60, 60, 60);
+	border-radius: 15px;
+}
+QPushButton:hover {	
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70, 70, 70);
+}
+QPushButton:pressed {	
+	background-color: rgb(250, 230, 0);
+	border: 2px solid rgb(255, 165, 24);	
+	color: rgb(35, 35, 35);
+}</string>
+                </property>
+                <property name="text">
+                 <string>LOGOUT</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="file_rc.qrc">
+                  <normaloff>:/Graphics/graphics/ic_lock_power_off_alpha.png</normaloff>:/Graphics/graphics/ic_lock_power_off_alpha.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QWidget" name="widget_2" native="true">
+             <layout class="QGridLayout" name="gridLayout_25"/>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QScrollArea" name="scrollArea">
+             <property name="styleSheet">
+              <string notr="true">background:transparent;
+border:none;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>462</width>
+                <height>298</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_34">
+               <item row="0" column="0">
+                <widget class="QWidget" name="time_widget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>110</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Tiempo</string>
+                 </property>
+                 <property name="whatsThis">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Muestra el tiempo que ha estado conectado a Internet, el tiempo restante (si es un usuario temporal) y el porciento de consumo del tiempo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget#time_widget{
+	background-color: rgb(3, 213, 255);
+}
+
+QWidget#time_widget::hover{
+	background-color: rgb(2, 192, 230);
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_20">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="file_rc.qrc">:/Graphics/graphics/connected_time.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QWidget" name="time_content_2" native="true">
+                    <layout class="QGridLayout" name="gridLayout_21">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="time_percent">
+                       <property name="styleSheet">
+                        <string notr="true">font: bold 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="text">
+                        <string>0%</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="current_time">
+                       <property name="styleSheet">
+                        <string notr="true">font: bold 16pt &quot;Segoe UI&quot;;
+color: white;
+</string>
+                       </property>
+                       <property name="text">
+                        <string>00:00:00</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="elapsed_time">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="text">
+                        <string>00:00:00</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QProgressBar" name="time_progress">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>5</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QProgressBar {
+    border: none;
+    /*border-radius: 1px;
+    text-align: center;*/
+	background-color: rgb(0, 0, 0, 100);
+	height:1px;
+}
+
+QProgressBar::chunk {
+    border-radius: 0.5px;
+    background-color: white;
+}</string>
+                    </property>
+                    <property name="value">
+                     <number>50</number>
+                    </property>
+                    <property name="textVisible">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="1" rowspan="2">
+                <widget class="QWidget" name="welcome_widget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Bienvenido a XGAMES</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget#welcome_widget{
+	background-color:  rgb(38, 175, 0);
+}
+
+QWidget#welcome_widget::hover{
+	background-color:green ;
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_22">
+                  <property name="topMargin">
+                   <number>50</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>50</number>
+                  </property>
+                  <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                   <widget class="QLabel" name="user_2">
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: bold 12pt &quot;Segoe UI&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>Bienvenido JaleXCode Solutions</string>
+                    </property>
+                    <property name="textFormat">
+                     <enum>Qt::PlainText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                   <widget class="QLabel" name="label_4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="file_rc.qrc">:/Logo/graphics/xgames_white.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QWidget" name="speed_widget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>166662</width>
+                   <height>110</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Velocidad de Internet</string>
+                 </property>
+                 <property name="whatsThis">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Muestra la velocidad del tráfico de la red correspondiente al adaptador de Red seleccionado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget#speed_widget{
+	background-color:rgb(255, 152, 166);
+}
+
+QWidget#speed_widget::hover{
+	background-color:rgb(232, 138, 152);
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_7">
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="file_rc.qrc">:/Graphics/graphics/speed_flat.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QWidget" name="widget_9" native="true">
+                    <layout class="QGridLayout" name="gridLayout_24">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QWidget" name="widget_10" native="true">
+                       <layout class="QGridLayout" name="gridLayout_26">
+                        <item row="0" column="0">
+                         <layout class="QGridLayout" name="gridLayout_27">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="upload_speed">
+                            <property name="styleSheet">
+                             <string notr="true">font: bold 14pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>↑ 0 KiB</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="increase_u_speed">
+                            <property name="styleSheet">
+                             <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>+0 B</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item row="0" column="1">
+                         <layout class="QGridLayout" name="gridLayout_28">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="download_speed">
+                            <property name="styleSheet">
+                             <string notr="true">font: bold 14pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>↓ 0 KiB</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="QLabel" name="increase_d_speed">
+                            <property name="styleSheet">
+                             <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>+0 B</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QWidget" name="up_down_widget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>166662</width>
+                   <height>110</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Cantidad de datos subidos/descargados</string>
+                 </property>
+                 <property name="whatsThis">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Muestra la cantidad de datos enviados o descargados desde que inició sesión&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget#up_down_widget{
+	background-color:rgb(255, 170, 0);
+}
+
+QWidget#up_down_widget::hover{
+	background-color:rgb(223, 125, 5);
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_8">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_8">
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="file_rc.qrc">:/Graphics/graphics/up_down.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QWidget" name="widget_12" native="true">
+                    <layout class="QGridLayout" name="gridLayout_9">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="uploaded_data">
+                       <property name="styleSheet">
+                        <string notr="true">font: bold 14pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="text">
+                        <string>↑ 0 KiB</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="downloaded_data">
+                       <property name="styleSheet">
+                        <string notr="true">font: bold 14pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="text">
+                        <string>↓ 0 KiB</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QWidget" name="tile_widget" native="true">
+                 <property name="toolTip">
+                  <string>POWERED by JaleXCode</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget#tile_widget{
+	background-color:rgb(56, 93, 173);
+}
+
+QWidget#tile_widget::hover{
+	background-color:rgb(20, 70, 110);
+}</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_39">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_10">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="file_rc.qrc">:/images/images/jalex.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QLabel" name="message">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*font: 26pt &quot;Segoe UI&quot;;*/
+color: rgba(255, 255, 255, 100);
+padding:30px;
+background: rgba(0, 0, 0, 80);
+border-radius:20px;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt;&quot;&gt;Iniciando XGAMES&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Por favor, espere...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="top_bar">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_error">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 85, 127);
+border-radius: 10px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>3</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_error">
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Calibri&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Error</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="show_details">
+            <property name="styleSheet">
+             <string notr="true">QToolButton{
+color: rgb(0, 0, 0);
+font: bold 8pt &quot;Segoe UI&quot;;
+}
+QToolButton:hover{
+color: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>Ver detalles</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="close_pupup">
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	border-radius: 8px;	
+	background-image: url(:/Close_Image/graphics/cil-x.png);
+	background-position: center;	
+	background-color: rgb(60, 60, 60, 150);
+}
+QPushButton:hover {
+	background-color: rgb(50, 50, 50);	
+	color: rgb(200, 200, 200);
+}
+QPushButton:pressed {
+	background-color: rgb(35, 35, 35);	
+	color: rgb(200, 200, 200);
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="file_rc.qrc">
+              <normaloff>:/Graphics/graphics/cil-x.png</normaloff>:/Graphics/graphics/cil-x.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPrograma">
+    <property name="title">
+     <string>Programa</string>
+    </property>
+    <addaction name="show_f_window"/>
+    <addaction name="separator"/>
+    <addaction name="exit_action"/>
+   </widget>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="admin_users_action"/>
+    <addaction name="options"/>
+   </widget>
+   <widget class="QMenu" name="menuAcerca_de">
+    <property name="title">
+     <string>Acerca de</string>
+    </property>
+    <widget class="QMenu" name="developer_telegram">
+     <property name="title">
+      <string>Telegram</string>
+     </property>
+     <property name="icon">
+      <iconset resource="file_rc.qrc">
+       <normaloff>:/Graphics/graphics/telegram.png</normaloff>:/Graphics/graphics/telegram.png</iconset>
+     </property>
+     <addaction name="about_me"/>
+     <addaction name="developer_channel"/>
+     <addaction name="support_2"/>
+    </widget>
+    <addaction name="developer"/>
+    <addaction name="facebook"/>
+    <addaction name="developer_telegram"/>
+    <addaction name="twitter"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="donate_menu">
+    <property name="title">
+     <string>Donación</string>
+    </property>
+    <addaction name="donate"/>
+   </widget>
+   <addaction name="menuPrograma"/>
+   <addaction name="menuHerramientas"/>
+   <addaction name="menuAcerca_de"/>
+   <addaction name="donate_menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="exit_action">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/highlight_remove@2x.png</normaloff>:/Graphics/graphics/highlight_remove@2x.png</iconset>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="admin_users_action">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/passw.png</normaloff>:/Graphics/graphics/passw.png</iconset>
+   </property>
+   <property name="text">
+    <string>Administrar usuarios</string>
+   </property>
+  </action>
+  <action name="get_status_action">
+   <property name="text">
+    <string>Obtener estado</string>
+   </property>
+  </action>
+  <action name="developer">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/develop.png</normaloff>:/Graphics/graphics/develop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Desarrollado por JalexCode</string>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="show_f_window">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/skypewifi.png</normaloff>:/Graphics/graphics/skypewifi.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ver ventana de estado</string>
+   </property>
+  </action>
+  <action name="twitter">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/alt_twitter_1.png</normaloff>:/Graphics/graphics/alt_twitter_1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Twitter: @javyalejandro99</string>
+   </property>
+  </action>
+  <action name="options">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/settings.png</normaloff>:/Graphics/graphics/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Opciones</string>
+   </property>
+  </action>
+  <action name="support">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/telegram.png</normaloff>:/Graphics/graphics/telegram.png</iconset>
+   </property>
+   <property name="text">
+    <string>Soporte: @xgamesoporte</string>
+   </property>
+  </action>
+  <action name="about_me">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/alt_sms_2.png</normaloff>:/Graphics/graphics/alt_sms_2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Desarrollador: @jalexcode</string>
+   </property>
+  </action>
+  <action name="support_2">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/icon_support.png</normaloff>:/Graphics/graphics/icon_support.png</iconset>
+   </property>
+   <property name="text">
+    <string>Soporte: @xgamesoporte</string>
+   </property>
+  </action>
+  <action name="channel">
+   <property name="text">
+    <string>Canal: </string>
+   </property>
+  </action>
+  <action name="donate">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/Coffee Time.png</normaloff>:/Graphics/graphics/Coffee Time.png</iconset>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="facebook">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/facebook (2).png</normaloff>:/Graphics/graphics/facebook (2).png</iconset>
+   </property>
+   <property name="text">
+    <string>Facebook: JalexCode Solutions</string>
+   </property>
+  </action>
+  <action name="developer_channel">
+   <property name="icon">
+    <iconset resource="file_rc.qrc">
+     <normaloff>:/Graphics/graphics/success.png</normaloff>:/Graphics/graphics/success.png</iconset>
+   </property>
+   <property name="text">
+    <string>Canal del desarrollador: @jalexcodesolutions</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>user_ledit</tabstop>
+  <tabstop>password_ledit</tabstop>
+  <tabstop>ticket_rb</tabstop>
+  <tabstop>permanent_rb</tabstop>
+  <tabstop>checkBox_save_user</tabstop>
+  <tabstop>login_btn</tabstop>
+  <tabstop>close_pupup</tabstop>
+ </tabstops>
+ <resources>
+  <include location="file_rc.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>ticket_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>password_ledit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>483</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>permanent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>password_ledit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>527</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exit_action</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

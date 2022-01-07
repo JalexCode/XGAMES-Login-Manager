@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>592</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Administrar usuarios</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="file_rc.qrc">
+    <normaloff>:/Avatar/graphics/avatar_logo.png</normaloff>:/Avatar/graphics/avatar_logo.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+color: rgb(200, 200, 200);
+background-color: rgb(50, 50, 50);/* rgb(10, 10, 10);*/
+}</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Doble click para cambiar la contraseña</string>
+     </property>
+     <property name="whatsThis">
+      <string>Presione doble click sobre cualquier usuario de la tabla para cambiar su contraseña</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView
+{
+font: 11pt &quot;Segoe UI&quot;;
+	color:white;
+    border: none;/*1px solid #76797C;*/
+    gridline-color: #31363b;
+    background-color: #232629;
+}
+
+
+QTableView, QHeaderView
+{
+    border-radius: 10px;
+}
+
+QTableView::item:pressed, QListView::item:pressed, QTreeView::item:pressed  {
+    background: #18465d;
+    color: #eff0f1;
+}
+
+QTableView::item:selected:active, QTreeView::item:selected:active, QListView::item:selected:active  {
+    background: #287399;
+    color: #eff0f1;
+}
+
+
+QHeaderView
+{
+    background-color: #31363b;
+    border: none;/*1px transparent;*/
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+QHeaderView::section  {
+    background-color: #31363b;
+    color: #eff0f1;
+    padding: 5px;
+	 border: none;/*1px solid #76797C;*/
+    border-radius: 10px;
+    text-align: center;
+}
+
+QHeaderView::section::vertical::first, QHeaderView::section::vertical::only-one
+{
+    border-top: 1px solid #76797C;
+}
+
+QHeaderView::section::vertical
+{
+    border-top: transparent;
+}
+
+QHeaderView::section::horizontal::first, QHeaderView::section::horizontal::only-one
+{
+    border-left: 1px solid #76797C;
+}
+
+QHeaderView::section::horizontal
+{
+    border-left: transparent;
+}
+
+
+QHeaderView::section:checked
+ {
+    color: white;
+    background-color: #334e5e;
+ }
+
+ /* style the sort indicator */
+QHeaderView::down-arrow {
+    image: url(:/qss_icons/rc/down_arrow.png);
+}
+
+QHeaderView::up-arrow {
+    image: url(:/qss_icons/rc/up_arrow.png);
+}
+
+
+QTableCornerButton::section {
+    background-color: transparent;/*#31363b;*/
+    border: none;/*1px transparent #76797C;*/
+    border-radius: 10px;
+}</string>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideMiddle</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Usuario</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Consumido</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Restante</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Primera conexión</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Última vez</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="file_rc.qrc"/>
+  <include location="file_rc.qrc"/>
+ </resources>
+ <connections/>
+</ui>
